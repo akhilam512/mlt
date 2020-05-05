@@ -29,6 +29,7 @@ extern mlt_filter filter_audiowaveform_init( mlt_profile profile, mlt_service_ty
 extern mlt_filter filter_qtext_init( mlt_profile profile, mlt_service_type type, const char *id, char *arg );
 extern mlt_producer producer_qimage_init( mlt_profile profile, mlt_service_type type, const char *id, char *arg );
 extern mlt_producer producer_qtext_init( mlt_profile profile, mlt_service_type type, const char *id, char *arg );
+extern mlt_producer producer_qml_init( mlt_profile profile, mlt_service_type type, const char *id, char *arg );
 extern mlt_producer producer_kdenlivetitle_init( mlt_profile profile, mlt_service_type type, const char *id, char *arg );
 extern mlt_transition transition_vqm_init( mlt_profile profile, mlt_service_type type, const char *id, void *arg );
 extern mlt_transition transition_qtblend_init( mlt_profile profile, mlt_service_type type, const char *id, void *arg );
@@ -53,6 +54,7 @@ MLT_REPOSITORY
 #endif
 	MLT_REGISTER( filter_type, "audiowaveform", filter_audiowaveform_init );
 	MLT_REGISTER( filter_type, "qtext", filter_qtext_init );
+	MLT_REGISTER( producer_type, "qml", producer_qml_init );
 	MLT_REGISTER( producer_type, "qimage", producer_qimage_init );
 	MLT_REGISTER( producer_type, "qtext", producer_qtext_init );
 	MLT_REGISTER( producer_type, "kdenlivetitle", producer_kdenlivetitle_init );
@@ -73,6 +75,7 @@ MLT_REPOSITORY
 	MLT_REGISTER_METADATA( producer_type, "qimage", metadata, "producer_qimage.yml" );
 	MLT_REGISTER_METADATA( producer_type, "qtext", metadata, "producer_qtext.yml" );
 	MLT_REGISTER_METADATA( producer_type, "kdenlivetitle", metadata, "producer_kdenlivetitle.yml" );
+	MLT_REGISTER_METADATA( producer_type, "qml", metadata, "producer_qml.yml" );
 #ifdef GPL3
 	MLT_REGISTER( transition_type, "vqm", transition_vqm_init );
 	MLT_REGISTER_METADATA( transition_type, "vqm", metadata, "transition_vqm.yml" );

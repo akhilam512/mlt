@@ -1,0 +1,11 @@
+schema_version: 0.1
+type: producer
+identifier: qml
+title: QML
+version: 1
+copyright: Akhil K Gangadharan
+creator: Akhil K Gangadharan
+license: LGPLv2.1
+language: en
+tags:
+  - Video

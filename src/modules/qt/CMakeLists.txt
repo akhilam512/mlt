@@ -1,5 +1,5 @@
 if(GPL)
-    find_package(Qt5 COMPONENTS Core Gui Xml Svg Widgets)
+    find_package(Qt5 COMPONENTS Core Gui Xml Svg Widgets Quick Qml)
     if(Qt5_FOUND)
         set(mltqt_src
             factory.c producer_qimage.c producer_kdenlivetitle.c
@@ -7,9 +7,10 @@ if(GPL)
             qimage_wrapper.cpp kdenlivetitle_wrapper.cpp
             filter_audiowaveform.cpp filter_qtext.cpp filter_qtblend.cpp
             producer_qtext.cpp transition_qtblend.cpp
-            consumer_qglsl.cpp)
+            consumer_qglsl.cpp qml_wrapper.cpp producer_qml.cpp)
         set(mltqt_lib mlt++ mlt m Threads::Threads
-            Qt5::Core Qt5::Gui Qt5::Xml Qt5::Svg Qt5::Widgets)
+            Qt5::Core Qt5::Gui Qt5::Xml Qt5::Svg Qt5::Widgets Qt5::Quick Qt5::Qml)
+        set(CMAKE_INCLUDE_CURRENT_DIR)
         set(mltqt_def USE_QT_OPENGL)
         if(GPL3)
             list(APPEND mltqt_src transition_vqm.cpp)
@@ -38,9 +39,14 @@ if(GPL)
         add_library(mltqt MODULE ${mltqt_src})
         target_link_libraries(mltqt ${mltqt_lib})
         target_compile_definitions(mltqt PRIVATE ${mltqt_def})
-        set_target_properties(mltqt PROPERTIES CXX_STANDARD 11)
         # Create module in parent directory, for the benefit of "source setenv".
         set_target_properties(mltqt PROPERTIES LIBRARY_OUTPUT_DIRECTORY ..)
+        set_target_properties(mltqt PROPERTIES CXX_STANDARD 14)
+        set_target_properties(mltqt PROPERTIES AUTOMOC TRUE)
+<<<<<<< HEAD
+>>>>>>> qt: Add Kdenlive QML producer
+=======
+>>>>>>> e236bf4e... qt: Add kdenlive qml producer
         install(TARGETS mltqt LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/mlt)
         file(GLOB yml *.yml)
         install(FILES ${yml}
