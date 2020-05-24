@@ -43,10 +43,6 @@ if(GPL)
         set_target_properties(mltqt PROPERTIES LIBRARY_OUTPUT_DIRECTORY ..)
         set_target_properties(mltqt PROPERTIES CXX_STANDARD 14)
         set_target_properties(mltqt PROPERTIES AUTOMOC TRUE)
-<<<<<<< HEAD
->>>>>>> qt: Add Kdenlive QML producer
-=======
->>>>>>> e236bf4e... qt: Add kdenlive qml producer
         install(TARGETS mltqt LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/mlt)
         file(GLOB yml *.yml)
         install(FILES ${yml}
